@@ -41,8 +41,8 @@ function generatePassword(){
   var passLength = prompt("How many character would you like to use? min:8 max:128");
  
     
-      for(var i = 1; i < passLength; i++){
-      password =  character.charAt(Math.floor(Math.random() * Math.floor(character.length -1)));
+      for(var i = 0; i < passLength; i++){
+      password =  password + character.charAt(Math.floor(Math.random() * Math.floor(character.length -1)));
       
     };
   return password;
