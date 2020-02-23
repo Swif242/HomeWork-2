@@ -5,32 +5,42 @@ var generateBtn = document.querySelector("#generate");
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
   passwordText.value = password;
 
 }
-var passLength = prompt("How many character would you like to use? min:8 max:128");
-var upperCase = confirm("Would you like to use Capitalization?");
-var lowerCase = confirm("Would you like tl use Lowercase?");
-var symbol = confirm("would you like to use Symbols?");
-var num = confirm("Would you like to use Numbers?");
 
-var passArray = [passLength,upperCase,lowerCase,symbol,num]
+var char ="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var num = 123456789;
+var symbol = "!@#$%^&*()";
+var passLength = prompt("How many character would you like to use? min:8 max:128");
+
+confirm("Would you like to use Capitalization?");
+confirm("Would you like tl use Lowercase?");
+confirm("would you like to use Symbols?");
+confirm("Would you like to use Numbers?");
+
 // Add event listener to generate button
 // generateBtn.addEventListener("click", writePassword);
-generateBtn.addEventListener("click", function(){
-  passLength.value;
-  upperCase.value;
-  lowerCase.value;
+generateBtn.addEventListener("click", writePassword, function(e){
+  // passLength.value;
+
   symbol.value;
   num.value;
-  generatePassword(passLength,upperCase,lowerCase,symbol,num)
+  password.value = generatedPassword(passLength.value, char)
 });
 
-function generatePassword(passLength,upperCase,lowerCase,symbol,num){
-    var generatedPassword = "";
 
-    for(var i = 0, )
+
+function generatePassword(passLength, char){
+    var pwd = " ";
+  
+
+    for(var i = 0; i < passLength; i++){
+      pwd += char.charAt(Math.floor(Math.random() * char.length));
+      console.log(pwd);
+    }
+    return pwd;
+    
 };
 
 
@@ -48,55 +58,23 @@ function generatePassword(passLength,upperCase,lowerCase,symbol,num){
 
 
 
-function randomUpper (){
-  return String.fromCharCode(Math.floor(Math.random()* 26) + 65 );
+// function randomUpper (){
+//   return String.fromCharCode(Math.floor(Math.random()* 26) + 65 );
   
-}
-
-function randomLower(){
-  return String.fromCharCode(Math.floor(Math.random()* 26) + 97 );
-}
-
- function randomSymbol (){
-  var symbols = "!@#$%^&*()";
-  return symbols[Math.floor(Math.random() * symbols.length)];
-}
-
-
- function randomNumber (){
-  return String.fromCharCode(Math.floor(Math.random()* 9) + 49 );
-}
-
-
-// uppcase character
-// if(upperCase = true){
-//   randomPass.randomUpper();
-
-
-  // }}
-
-
-// lowercase character
-// if(lowerCase){
-
 // }
 
-// symbol character
-// if(symbol){
-
+// function randomLower(){
+//   return String.fromCharCode(Math.floor(Math.random()* 26) + 97 );
 // }
 
-// number charcter
-// if(num){
-
+//  function randomSymbol (){
+//   var symbols = "!@#$%^&*()";
+//   return symbols[Math.floor(Math.random() * symbols.length)];
 // }
 
 
-// if statement for character length
-// if(passLength< 8){
-//   prompt("Min character length is 8. Try again");
-// }else if(passLength > 128){
-// prompt("Max character length is 128. Try again");
-// }else{
-// alert("Thank you!");
+//  function randomNumber (){
+//   return String.fromCharCode(Math.floor(Math.random()* 9) + 49 );
 // }
+
+
