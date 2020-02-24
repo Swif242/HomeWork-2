@@ -12,41 +12,43 @@ function writePassword() {
 
 // var pwd = "";
 // var character ="123456789!@#$%^&*()abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-// var upper =;
+
 // var num = ;
 // var symbol = "";
 // var passLength = prompt("How many character would you like to use? min:8 max:128");
-// prompt user password criteria
-// confirm("Would you like to use Capitalization?");
-// confirm("Would you like tl use Lowercase?");
-// confirm("would you like to use Symbols?");
-// confirm("Would you like to use Numbers?");
+
+
 
 // Add event listener to generate button
-// generateBtn.addEventListener("click", writePassword);
 generateBtn.addEventListener("click", writePassword);
-  
 
-  // symbol.value;
-  // num.value;
+
+// symbol.value;
+// num.value;
 //   password.value = generatedPassword(passLength.value, char)
 // });
 
 
 
-function generatePassword(){
-  
-  var character ="123456789!@#$%^&*()abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  var password = "";
+function generatePassword() {
+  // prompt user password criteria
   var passLength = prompt("How many character would you like to use? min:8 max:128");
- 
-    
-      for(var i = 0; i < passLength; i++){
-      password =  password + character.charAt(Math.floor(Math.random() * Math.floor(character.length -1)));
-      
-    };
-  return password;
+  var cap = confirm("Would you like to use Capitalization?");
+  var low = confirm("Would you like tl use Lowercase?");
+  var sym = confirm("would you like to use Symbols?");
+  var num = confirm("Would you like to use Numbers?");
   
+// if all criteria are true
+  if (cap == true && low == true && sym == true && num == true) {
+    var character = "123456789!@#$%^&*()abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    var password = "";
+    for (var i = 0; i < passLength; i++) {
+      password = password + character.charAt(Math.floor(Math.random() * Math.floor(character.length - 1)));
+
+    };
+
+    return password;
+  };
 };
 
 
@@ -55,38 +57,49 @@ function generatePassword(){
 
 // object consisting of random functions
 // var randomPass = {
-  // upper: randomUpper,
-  // lower: randomLower,
-  // symbol: randomSymbol,
-  // number: randomNumber,
+// upper: ,
+// lower: randomLower,
+// symbol: randomSymbol,
+// number: randomNumber,
 // };
 
 
 
-// function randomUpper (){
-//   return String.fromCharCode(Math.floor(Math.random()* 26) + 65 );
-  
-// }
+function randomUpper() {
+  var upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  return uppper[Math.floor(Math.random() * upper.length)];
+}
 
-// function randomLower(){
-//   return String.fromCharCode(Math.floor(Math.random()* 26) + 97 );
-// }
-
-//  function randomSymbol (){
-//   var symbols = "!@#$%^&*()";
-//   return symbols[Math.floor(Math.random() * symbols.length)];
-// }
+function randomLower() {
+  var lower = "abcdefghijklmnopqrstuvwxyz"
+  return lower[Math.floor(Math.random() * lower.length)];
+}
 
 
-//  function randomNumber (){
-//   return String.fromCharCode(Math.floor(Math.random()* 9) + 49 );
-// }
+function randomSymbol() {
+  var symbols = "!@#$%^&*()";
+  return symbols[Math.floor(Math.random() * symbols.length)];
+}
 
-// if(passLength >= 8){
-//   upper.randomUpper();
-//   lower.randomLower();
-//   symbol.randomSymbol();
-//   num.randomNumber();
-// };
 
-// console.log( upper + lower + num + symbol * passLength)
+function randomNumber() {
+  var number = "123456789"
+  return number[Math.floor(Math.random() * number.length)];
+}
+
+
+
+if (num == true) {
+
+};
+
+if (sym == true) {
+
+};
+
+if (low == true) {
+
+};
+if (cap == true) {
+
+};
