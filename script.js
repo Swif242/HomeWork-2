@@ -37,8 +37,8 @@ function generatePassword() {
   var low = confirm("Would you like tl use Lowercase?");
   var sym = confirm("would you like to use Symbols?");
   var num = confirm("Would you like to use Numbers?");
-  
-// if all criteria are true
+
+  // if all criteria are true
   if (cap == true && low == true && sym == true && num == true) {
     var character = "123456789!@#$%^&*()abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
     var password = "";
@@ -48,8 +48,45 @@ function generatePassword() {
     };
 
     return password;
-  };
+  }
+  else if (cap == true) {
+    var upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    var password = "";
+    for (var i = 0; i < passLength; i++) {
+      password = password + upper.charAt(Math.floor(Math.random() * Math.floor(upper.length - 1)));
+    }
+    return password;
+  }
+  else if (low == true) {
+    var lower = "abcdefghijklmnopqrstuvwxyz";
+    var password = "";
+    for (var i = 0; i < passLength; i++) {
+      password = password + lower.charAt(Math.floor(Math.random() * Math.floor(lower.length - 1)));
+    }
+    return password;
+  }
+  else if (sym == true) {
+    var symbol = "!@#$%^&*()";
+    var password = "";
+    for (var i = 0; i < passLength; i++) {
+      password = password + symbol.charAt(Math.floor(Math.random() * Math.floor(symbol.length - 1)));
+    }
+    return password;
+  }
+  else if (num == true) {
+    var number = "123456789";
+    var password = "";
+    for (var i = 0; i < passLength; i++) {
+      password = password + number.charAt(Math.floor(Math.random() * Math.floor(number.length - 1)));
+    }
+    return password;
+  }
+  else {
+    alert("You must confirm password criteria");
+  }
 };
+
+
 
 
 
@@ -65,41 +102,41 @@ function generatePassword() {
 
 
 
-function randomUpper() {
-  var upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  return uppper[Math.floor(Math.random() * upper.length)];
-}
+// function randomUpper() {
+//   var upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+//   return uppper[Math.floor(Math.random() * upper.length)];
+// }
 
-function randomLower() {
-  var lower = "abcdefghijklmnopqrstuvwxyz"
-  return lower[Math.floor(Math.random() * lower.length)];
-}
-
-
-function randomSymbol() {
-  var symbols = "!@#$%^&*()";
-  return symbols[Math.floor(Math.random() * symbols.length)];
-}
+// function randomLower() {
+//   var lower = "abcdefghijklmnopqrstuvwxyz"
+//   return lower[Math.floor(Math.random() * lower.length)];
+// }
 
 
-function randomNumber() {
-  var number = "123456789"
-  return number[Math.floor(Math.random() * number.length)];
-}
+// function randomSymbol() {
+//   var symbols = "!@#$%^&*()";
+//   return symbols[Math.floor(Math.random() * symbols.length)];
+// }
+
+
+// function randomNumber() {
+//   var number = "123456789"
+//   return number[Math.floor(Math.random() * number.length)];
+// }
 
 
 
-if (num == true) {
+// if (num == true) {
 
-};
+// };
 
-if (sym == true) {
+// if (sym == true) {
 
-};
+// };
 
-if (low == true) {
+// if (low == true) {
 
-};
-if (cap == true) {
+// };
+// if (cap == true) {
 
-};
+// };
