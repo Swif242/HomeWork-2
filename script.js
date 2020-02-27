@@ -9,30 +9,22 @@ function writePassword() {
 
 };
 
-// variables
-//   var upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-//   var lower = "abcdefghijklmnopqrstuvwxyz";
-//   var symbols = "!@#$%^&*()";
-//   var number = "123456789"
-//   var randPass = [upper, lower, symbols, numbers];
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
 
-// symbol.value;
-// num.value;
-//   password.value = generatedPassword(passLength.value, char)
-// });
-  var passLength;
-  var cap;
-  var low;
-  var sym;
-  var num;
+// prompt and confirm variables
+var passLength;
+var cap;
+var low;
+var sym;
+var num;
 
 
 function generatePassword() {
   // prompt user password criteria
+  // prompt uses parsInt to store a number instead of a string
   passLength = parseInt(prompt("How many character would you like to use? min:8 max:128"));
   cap = confirm("Would you like to use Capitalization?");
   low = confirm("Would you like tl use Lowercase?");
@@ -40,7 +32,6 @@ function generatePassword() {
   num = confirm("Would you like to use Numbers?");
   password = "";
 
- 
   // if all criteria are true
   // if (cap == true && low == true && sym == true && num == true) {
   //   var character = "123456789!@#$%^&*()abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -49,101 +40,112 @@ function generatePassword() {
   //     password = password + character.charAt(Math.floor(Math.random() * Math.floor(character.length - 1)));
 
   //   };
-   
+
   // } 
+  if (num == true) {
+    randomNumber();
+  };
 
+  if (sym == true) {
+    randomSymbol();
+  };
+
+  if (low == true) {
+    randomLower();
+  };
+
+  if (cap == true) {
+    randomUpper();
+    return password
+  }
   
-    if (cap == true) {
-      var upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-      for (var i = 0; i < passLength; i++) {
-        password = password + upper.charAt(Math.floor(Math.random() * Math.floor(upper.length -1)));
-      }
-      
-    };
-    
-    if (low == true) {
-      var lower = "abcdefghijklmnopqrstuvwxyz";
-      for (var i = 0; i < passLength; i++) {
-        password = password + lower.charAt(Math.floor(Math.random() * Math.floor(lower.length -1)));
-      }
-      
-    };
-
-    if (sym == true) {
-      var symbol = "!@#$%^&*()";
-      for (var i = 0; i < passLength; i++) {
-        password = password + symbol.charAt(Math.floor(Math.random() * Math.floor(symbol.length -1)));
-      };
   
-    };
-
-    if (num == true) {
-      var number = "123456789";
-      for (var i = 0; i < passLength; i++) {
-        password = password + number.charAt(Math.floor(Math.random() * Math.floor(number.length -1)));
-      };
+  if (cap == false && low == false && sym == false && num == true){
+    alert("You must confirm password criteria");
+  }
+    password += randGen();
+  return password;
+ 
     
-      return password;
-    }
-    else {
-      alert("You must confirm password criteria");
-    }
 
+};
+
+var passArray = [
+randomUpper = function() {
+  var upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  for (var i = 0; i < passLength; i++) {
+    password = password + upper.charAt(Math.floor(Math.random() * Math.floor(upper.length - 1)));
+  }
+},
+
+
+ randomLower= function() {
+  var lower = "abcdefghijklmnopqrstuvwxyz"
+  for (var i = 0; i < passLength; i++) {
+    password = password + lower.charAt(Math.floor(Math.random() * Math.floor(lower.length - 1)));
+  }
+
+},
+
+
+randomSymbol = function() {
+  var symbols = "!@#$%^&*()";
+  for (var i = 0; i < passLength; i++) {
+    password = password + symbols.charAt(Math.floor(Math.random() * Math.floor(symbols.length - 1)));
+  }
+},
+
+
+randomNumber= function() {
+  var number = "123456789"
+  for (var i = 0; i < passLength; i++) {
+    password = password + number.charAt(Math.floor(Math.random() * Math.floor(number.length - 1)));
+  }
+
+}
+];
+
+// tried to randomize the firing order of the functions
+function randGen(){
+  // var passArray;
+  for(i = 0; i < passArray.length; i++){
+     password = password + passArray.charAt(Math.floor(Math.random() * Math.floor(passArray.length - 1)));
+  }
 };
 
 
 
 
+//  a different way i was trying out the generator functions
 
-
-
-// object consisting of random functions
-// var randomPass = {
-// upper: ,
-// lower: randomLower,
-// symbol: randomSymbol,
-// number: randomNumber,
-// };
-
-
-
-// function randomUpper() {
-//   var upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-//   password = password + upper.charAt(Math.floor(Math.random() * Math.floor(upper.length - 1)));
-//   // return password;
-// }
-
-
-// function randomLower() {
-//   var lower = "abcdefghijklmnopqrstuvwxyz"
-//   return lower[Math.floor(Math.random() * lower.length)];
-// }
-
-
-// function randomSymbol() {
-//   var symbols = "!@#$%^&*()";
-//   return symbols[Math.floor(Math.random() * symbols.length)];
-// }
-
-
-// function randomNumber() {
-//   var number = "123456789"
-//   return number[Math.floor(Math.random() * number.length)];
-// }
-
-
-
-// if (num == true) {
-// randomNumber();
-// };
-
-// if (sym == true) {
-// randomSymbol();
-// };
-
-// if (low == true) {
-//   randomLower();
-// };
 // if (cap == true) {
-//  randomUpper();
-// };
+//   //       var upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  //       for (var i = 0; i < passLength; i++) {
+  //         password = password + upper.charAt(Math.floor(Math.random() * Math.floor(upper.length -1)));
+  //       }
+
+  //     };
+
+  //     if (low == true) {
+  //       var lower = "abcdefghijklmnopqrstuvwxyz";
+  //       for (var i = 0; i < passLength; i++) {
+  //         password = password + lower.charAt(Math.floor(Math.random() * Math.floor(lower.length -1)));
+  //       }
+
+  //     };
+
+  //     if (sym == true) {
+  //       var symbol = "!@#$%^&*()";
+  //       for (var i = 0; i < passLength; i++) {
+  //         password = password + symbol.charAt(Math.floor(Math.random() * Math.floor(symbol.length -1)));
+  //       };
+
+  //     };
+
+  //     if (num == true) {
+  //       var number = "123456789";
+  //       for (var i = 0; i < passLength; i++) {
+  //         password = password + number.charAt(Math.floor(Math.random() * Math.floor(number.length -1)));
+  //       };
+  //       return password;
+  //     }
