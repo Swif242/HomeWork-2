@@ -24,17 +24,21 @@ generateBtn.addEventListener("click", writePassword);
 // num.value;
 //   password.value = generatedPassword(passLength.value, char)
 // });
-
+  var passLength;
+  var cap;
+  var low;
+  var sym;
+  var num;
 
 
 function generatePassword() {
   // prompt user password criteria
-  var passLength = prompt("How many character would you like to use? min:8 max:128");
-  var cap = confirm("Would you like to use Capitalization?");
-  var low = confirm("Would you like tl use Lowercase?");
-  var sym = confirm("would you like to use Symbols?");
-  var num = confirm("Would you like to use Numbers?");
-  var password = " ";
+  passLength = parseInt(prompt("How many character would you like to use? min:8 max:128"));
+  cap = confirm("Would you like to use Capitalization?");
+  low = confirm("Would you like tl use Lowercase?");
+  sym = confirm("would you like to use Symbols?");
+  num = confirm("Would you like to use Numbers?");
+  password = "";
 
  
   // if all criteria are true
@@ -51,35 +55,34 @@ function generatePassword() {
   
     if (cap == true) {
       var upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-      // var password = "";
-      for (var i = 0; i < passLength.length; i++) {
-        password = password + upper.charAt(Math.floor(Math.random() * Math.floor(upper.length - 1)));
+      for (var i = 0; i < passLength; i++) {
+        password = password + upper.charAt(Math.floor(Math.random() * Math.floor(upper.length -1)));
       }
-      // return password;
-    }
+      
+    };
     
     if (low == true) {
       var lower = "abcdefghijklmnopqrstuvwxyz";
-      // var password = "";
-      for (var i = 0; i < passLength.length; i++) {
-        password = password + lower.charAt(Math.floor(Math.random() * Math.floor(lower.length - 1)));
+      for (var i = 0; i < passLength; i++) {
+        password = password + lower.charAt(Math.floor(Math.random() * Math.floor(lower.length -1)));
       }
-      // return password;
-    }
+      
+    };
+
     if (sym == true) {
       var symbol = "!@#$%^&*()";
-      // var password = "";
-      for (var i = 0; i < passLength.length; i++) {
-        password = password + symbol.charAt(Math.floor(Math.random() * Math.floor(symbol.length - 1)));
-      }
-      // return password;
-    }
+      for (var i = 0; i < passLength; i++) {
+        password = password + symbol.charAt(Math.floor(Math.random() * Math.floor(symbol.length -1)));
+      };
+  
+    };
+
     if (num == true) {
       var number = "123456789";
-      // var password = "";
-      for (var i = 0; i < passLength.length; i++) {
-        password = password + number.charAt(Math.floor(Math.random() * Math.floor(number.length - 1)));
-      }
+      for (var i = 0; i < passLength; i++) {
+        password = password + number.charAt(Math.floor(Math.random() * Math.floor(number.length -1)));
+      };
+    
       return password;
     }
     else {
