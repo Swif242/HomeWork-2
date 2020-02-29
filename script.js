@@ -27,7 +27,7 @@ function generatePassword() {
   // prompt uses parsInt to store a number instead of a string
   passLength = parseInt(prompt("How many character would you like to use? min:8 max:128"));
   cap = confirm("Would you like to use Capitalization?");
-  low = confirm("Would you like tl use Lowercase?");
+  low = confirm("Would you like to use Lowercase?");
   sym = confirm("would you like to use Symbols?");
   num = confirm("Would you like to use Numbers?");
   password = "";
@@ -56,15 +56,18 @@ function generatePassword() {
 
   if (cap == true) {
     randomUpper();
-    return password
+    
   }
-  
+  var randonmPass=""
+  for (var i = 0; i < passLength; i++) {
+    randonmPass = randonmPass + password.charAt(Math.floor(Math.random() * Math.floor(password.length - 1)));
+  }
   
   if (cap == false && low == false && sym == false && num == true){
     alert("You must confirm password criteria");
   }
-    password += randGen();
-  return password;
+  //   password += randGen();
+  return randonmPass;
  
     
 
@@ -106,12 +109,12 @@ randomNumber= function() {
 ];
 
 // tried to randomize the firing order of the functions
-function randGen(){
-  // var passArray;
-  for(i = 0; i < passArray.length; i++){
-     password = password + passArray.charAt(Math.floor(Math.random() * Math.floor(passArray.length - 1)));
-  }
-};
+// function randGen(){
+//   // var passArray;
+//   for(i = 0; i < passArray.length; i++){
+//      password = password + passArray.charAt(Math.floor(Math.random() * Math.floor(passArray.length - 1)));
+//   }
+// };
 
 
 
