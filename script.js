@@ -38,10 +38,12 @@ function generatePassword() {
   //   // var password = "";
   //   for (var i = 0; i < passLength; i++) {
   //     password = password + character.charAt(Math.floor(Math.random() * Math.floor(character.length - 1)));
-
   //   };
-
   // } 
+
+
+  
+  // if statements calling functions if confirm == true
   if (num == true) {
     randomNumber();
   };
@@ -57,22 +59,27 @@ function generatePassword() {
   if (cap == true) {
     randomUpper();
     
-  }
-  var randonmPass=""
+  };
+  
+  //  if statement set to fire if now criteria is chosen
+  if (cap == false && low == false && sym == false && num == false){
+    alert("You must confirm password criteria to continue!");
+  };
+
+  //   password += randGen();
+
+// for loop for randomizing the returned password from passArray 
+var randonmPass=""
   for (var i = 0; i < passLength; i++) {
     randonmPass = randonmPass + password.charAt(Math.floor(Math.random() * Math.floor(password.length - 1)));
-  }
-  
-  if (cap == false && low == false && sym == false && num == true){
-    alert("You must confirm password criteria");
-  }
-  //   password += randGen();
+  };
+
   return randonmPass;
  
     
 
 };
-
+//  functions array to randomize selected criteria when called on
 var passArray = [
 randomUpper = function() {
   var upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -83,7 +90,7 @@ randomUpper = function() {
 
 
  randomLower= function() {
-  var lower = "abcdefghijklmnopqrstuvwxyz"
+  var lower = "abcdefghijklmnopqrstuvwxyz";
   for (var i = 0; i < passLength; i++) {
     password = password + lower.charAt(Math.floor(Math.random() * Math.floor(lower.length - 1)));
   }
@@ -100,7 +107,7 @@ randomSymbol = function() {
 
 
 randomNumber= function() {
-  var number = "123456789"
+  var number = "123456789";
   for (var i = 0; i < passLength; i++) {
     password = password + number.charAt(Math.floor(Math.random() * Math.floor(number.length - 1)));
   }
@@ -108,7 +115,9 @@ randomNumber= function() {
 }
 ];
 
-// tried to randomize the firing order of the functions
+//another way tried to randomize the firing order of the functions
+
+
 // function randGen(){
 //   // var passArray;
 //   for(i = 0; i < passArray.length; i++){
