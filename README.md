@@ -1,4 +1,4 @@
-# HomeWork-3
+# Random-Password-Generator
 Random password generator that when generate button is pressed, 
 1.User is prompted to specify how many characters to use. Between 8-128 characters
 2.Then asked to confirm the type of characters to use in the generator.
